@@ -1,0 +1,87 @@
+-- CREATE TABLE department ( 
+--     DeptId int primary Key not null, 
+--     DeptName varchar(25), 
+--     DeptLoc varchar(25) );
+
+-- CREATE TABLE Employee(  
+--     EmpId int PRIMARY KEY,  
+--     EmpName varchar(50),  
+--     DoB date,  
+--     DoJ date,  
+--     Job varchar(25),  
+--     Salary int,  
+--     DeptId int not null, Foreign Key(DeptId) references Department(DeptId));
+
+-- CREATE TABLE product( 
+--     ProdId int PRIMARY KEY, 
+--     ProdName varchar(255) , 
+--     Price int not null );
+-- INSERT INTO department VALUES (5,'Accounts','Bangalore');
+
+-- INSERT INTO department VALUES 
+--   (6,'Sales','Chennai') ;
+
+-- INSERT INTO department VALUES 
+--   (7,'Technical','New Delhi') ;
+
+-- INSERT INTO department VALUES 
+--   (8,'HR','Mysore');
+
+-- INSERT INTO department VALUES 
+--   (9,'R&D','Mumbai') ;
+
+-- select * from department;
+-- INSERT INTO Employee VALUES(001,'SANTHOSH',to_date('1985-12-05', 'yyyy-mm-dd'),to_date('2022-02-01', 'yyyy-mm-dd'),'Accountant',35000,5);
+
+-- INSERT INTO Employee VALUES(002,'Thomas Hardy',to_date('1987-10-17', 'yyyy-mm-dd'),to_date('2021-02-01', 'yyyy-mm-dd'), 'Sales Manager',55000,6);
+
+-- INSERT INTO Employee VALUES(003,'Antonio Moreno',to_date('1989-05-14', 'yyyy-mm-dd'),to_date('2022-04-15', 'yyyy-mm-dd'), 'Technician',25000,7);
+
+-- INSERT INTO Employee VALUES(004,'Ana Trujillo',to_date('1995-07-22', 'yyyy-mm-dd'),to_date('2022-04-01', 'yyyy-mm-dd'), 'HR Manager',30000,8);
+
+-- INSERT INTO Employee VALUES(005,'Maria Anders',to_date('1993-09-30', 'yyyy-mm-dd'),to_date('2021-07-15', 'yyyy-mm-dd'), 'Research Intern',20000,9);
+
+-- select * from Employee;
+
+-- INSERT INTO Employee VALUES(006,'John Hardy',to_date('1992-11-01', 'yyyy-mm-dd'),to_date('2022-05-01', 'yyyy-mm-dd'), 'Sales Team',25000,6);
+
+-- INSERT INTO Employee VALUES(007,'Samhith',to_date('1994-11-01', 'yyyy-mm-dd'),to_date('2023-01-01', 'yyyy-mm-dd'), 'Sales Team',20000,6);
+
+-- Select * from Employee;
+-- create view empdept as select 
+--     e.EmpName,
+--     e.DoB,
+--     e.Salary,
+--     d.DeptId,
+--     d.DeptName,
+--     d.DeptLoc from Employee e, department d
+--     where e.DeptId=d.DeptId ;
+-- select *from  empdept where Salary >=35000 and Salary<=50000;
+-- select * from empdept where DeptName='Sales';
+-- select * from empdept where not DeptName='HR';
+-- select * from empdept where DeptName='Sales' and DeptLoc='Chennai';
+
+-- DROP VIEW empdept;
+
+-- CREATE VIEW empdeptview AS
+-- SELECT 
+--     e.EmpName,
+--     e.DoB,
+--     e.DOJ,        
+--     e.Salary,
+--     d.DeptId,
+--     d.DeptName,
+--     d.DeptLoc
+-- FROM 
+--     Employee e
+-- JOIN  Department d ON e.DeptId = d.DeptId;
+
+--  select *from empdeptview;
+
+-- SELECT *
+-- FROM Employee
+-- WHERE DOJ <= ADD_MONTHS(SYSDATE, -12*3);
+-- SELECT *
+-- FROM Employee
+-- WHERE DOJ <= ADD_MONTHS(SYSDATE, -36)  -- completed at least 3 years
+--   AND Salary < 30000;
