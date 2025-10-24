@@ -1,0 +1,39 @@
+-- create table employee (
+--     emp_id number primary key,
+--     emp_name varchar2(100),
+--     department varchar2(50),
+--     salary number,
+--     hire_date date
+-- );
+
+-- create table oldemployee (
+--     emp_id number,
+--     emp_name varchar2(100),
+--     department varchar2(50),
+--     salary number,
+--     hire_date date,
+--     deleted_date date
+-- );
+
+-- create or replace trigger trg_employee_delete
+-- before delete on employee
+-- for each row
+-- begin
+--     insert into oldemployee (
+--         emp_id,
+--         emp_name,
+--         department,
+--         salary,
+--         hire_date,
+--         deleted_date
+--     )
+--     values (
+--         :old.emp_id,
+--         :old.emp_name,
+--         :old.department,
+--         :old.salary,
+--         :old.hire_date,
+--         sysdate
+--     );
+-- end;
+
